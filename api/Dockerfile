@@ -9,9 +9,9 @@ COPY package*.json ./
 
 # Install dependencies
 # RUN yarn install --force
-RUN yarn install --force
+RUN npm install --force
 # RUN npm fund
-RUN npm audit fix
+# RUN npm audit fix
 
 
 # Copy the rest of the application code

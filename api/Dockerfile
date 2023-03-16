@@ -9,8 +9,8 @@ COPY package*.json ./
 
 # Install dependencies
 # RUN yarn install --force
-RUN npm install 
-RUN npm fund
+RUN yarn install --force
+# RUN npm fund
 RUN npm audit fix
 
 

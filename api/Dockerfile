@@ -2,17 +2,15 @@
 FROM node:16
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /api
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
-# RUN npm install -g npm@9.6.2
 RUN yarn install --force --ignore-scripts
 RUN npm rebuild bcrypt --build-from-source
-# RUN  audit fix --force
-
+# RUN yarn rebuild bcrypt --build-from-source
 
 # Copy the rest of the application code
 COPY . .
@@ -20,42 +18,70 @@ COPY . .
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 
+ARG DB_HOST
+ARG DB_PORT
+ARG DB_USER
+ARG DB_NAME
+ARG DB_PASS
+ARG DB_SYNC
+ARG NODE_ENV
+ARG W_PORT
+
+ENV DB_HOST=${DB_HOST}
+ENV DB_PORT=${DB_PORT}
+ENV DB_USER=${DB_USER}
+ENV DB_NAME=${DB_NAME}
+ENV DB_PASS=${DB_PASS}
+ENV DB_SYNC=${DB_SYNC}
+ENV NODE_ENV=${NODE_ENV}
+ENV W_PORT=${W_PORT}
+
 # Expose port 3000 for the Node.js server
 EXPOSE 3000
 
 # Start the Node.js server
 CMD ["yarn", "start:dev"]
-# RUN npm start
 
-# Iniciar NGINX en primer plano
-# CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # # Base image
-# FROM node:14-alpine
+# FROM node:16
 
 # # Set the working directory to /app
-# WORKDIR /api
+# WORKDIR /app
 
-# # Instala node-pre-gyp de forma global
-# RUN npm install -g node-pre-gyp
-
-# #Copy package.json and package-lock.json
+# # Copy package.json and package-lock.json
 # COPY package*.json ./
 
 # # Install dependencies
-# # RUN yarn install --force
-# # RUN npm install --force
-# # RUN npm update
-# RUN npm ci --only=production
-# # RUN npm fund
-# # RUN npm audit fix
+# # RUN npm install -g npm@9.6.2
+# RUN yarn install --force --ignore-scripts
+# RUN npm rebuild bcrypt --build-from-source
+# # RUN  audit fix --force
 
 
 # # Copy the rest of the application code
 # COPY . .
-
-# RUN node-pre-gyp install --fallback-to-build
 
 # # Set NODE_ENV to production
 # ENV NODE_ENV=production
@@ -64,7 +90,7 @@ CMD ["yarn", "start:dev"]
 # EXPOSE 3000
 
 # # Start the Node.js server
-# CMD ["npm", "start"]
+# CMD ["yarn", "start:dev"]
 # # RUN npm start
 
 # # Iniciar NGINX en primer plano

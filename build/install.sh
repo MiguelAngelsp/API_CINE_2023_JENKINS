@@ -1,4 +1,4 @@
-cd var/lib/jenkins/workspace/Proyectos/Job-pCine/api/
+cd /var/lib/jenkins/workspace/Proyectos/Job-pCine/api/
 
 export $(cat .env | xargs)
 

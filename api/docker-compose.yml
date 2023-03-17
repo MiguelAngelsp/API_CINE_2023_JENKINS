@@ -10,7 +10,7 @@ services:
       DB_PORT: ${DB_PORT}
       NODE_ENV: ${NODE_ENV}
     env_file:
-      - .env
+      - ./.env
     ports:
       - 3000:3000
     depends_on:
@@ -25,7 +25,7 @@ services:
     ports:
       - ${WWW_PORT}:5432
     env_file:
-      - .env
+      - ./.env
   nginx:
     image: nginx:latest
     ports:

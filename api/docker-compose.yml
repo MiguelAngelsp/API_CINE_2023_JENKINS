@@ -2,7 +2,7 @@ version: '3.8'
 services:
   api:
     build: .
-    args:
+    environment:
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_NAME: ${DB_NAME}
@@ -18,7 +18,7 @@ services:
   db:
     image: postgres:14-alpine
     restart: always
-    args:
+    environment:
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}

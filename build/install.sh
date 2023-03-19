@@ -7,6 +7,6 @@ docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/api/docker-comp
 # docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/api/docker-compose.yml down 
 docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/api/docker-compose.yml up -d --remove-orphans
 #LEVANTAR LA APP
-docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/app/docker-compose.yml build --no-cache
+docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/appcine/docker-compose.yml build --no-cache
 # docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/api/docker-compose.yml down 
-docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/app/docker-compose.yml up -d --remove-orphans
+docker-compose -f /var/lib/jenkins/workspace/Proyectos/Job-pCine/appcine/docker-compose.yml up -d --remove-orphans

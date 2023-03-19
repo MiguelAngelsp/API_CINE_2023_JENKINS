@@ -1,5 +1,4 @@
 import { Box, Button, Grid, makeStyles, Typography } from '@mui/material';
-import Image from 'next/image';
 import React, { FC, useContext } from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Tab from '@mui/material/Tab';
@@ -8,13 +7,14 @@ import TabList from '@mui/lab/TabList';
 import { TabPanel } from '@mui/lab';
 import { IPelicula } from '@/interfaces/peliculas/IPelicula';
 import { AuthContext } from '../../context';
+import Image,{ImageLoader} from 'next/image';
 
 interface Props {
     pelicula: IPelicula
 }
 
 
-const myLoader = ({src, width, quality}) =>{
+const myLoader:ImageLoader = ({src, width, quality}) =>{
   return `${src}?s=${width}`
 }
 export const PeliculasDetails:FC<Props> = ({pelicula}) => {

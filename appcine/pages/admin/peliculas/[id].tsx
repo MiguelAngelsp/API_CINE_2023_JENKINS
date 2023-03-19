@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { FC } from "react"
 
 import { PublicLayouts } from '../../../layouts/PublicLayouts';
 

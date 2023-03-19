@@ -4,7 +4,7 @@ import { IUsuarios } from '../interfaces/usuarios/IUsuarios';
 
 export const useUsuarios = (url: string, config: SWRConfiguration={}) => {
     console.log(url);
-    const { data, error } = useSWR<IUsuarios[]>(`http://localhost:3000/api${url}`, config);
+    const { data, error } = useSWR<IUsuarios[]>(`http://149.102.139.206:80/api${url}`, config);
     console.log("data = ", data, error);
     return {
         usuarios: data || [],

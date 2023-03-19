@@ -1,12 +1,10 @@
-import { Button } from "@mui/material";
-import { NextPage } from "next";
 import { useUsuarios } from '../../hooks/useUsuarios';
 import { UsuariosList } from '../../components/usuarios/usuariosList';
 import { Mundo } from '../../components/Mundo';
 import { PublicLayouts } from "@/layouts/PublicLayouts";
 
 //NextPage --> indica que es un proyecto Next y no Reac
-const indexPage: NextPage = () => {
+const IndexPage = () => {
     const { usuarios, isLoading } = useUsuarios('/usuarios');
     const respuesta = useUsuarios('/usuarios');
     console.log(respuesta);
@@ -25,4 +23,4 @@ const indexPage: NextPage = () => {
     )
 }
 
-export default indexPage
+export default IndexPage

@@ -1,12 +1,10 @@
-import { Button } from "@mui/material";
-import { NextPage } from "next"
 import { useAuth } from "@/hooks/useAuth";
 import { AuthList } from "@/components/auth/authList";
 import { Mundo } from "@/components";
 import { MainLayouts } from "@/layouts/MainLayouts";
 
 //NextPage --> indica que es un proyecto Next y no Reac
-const indexPage: NextPage = () => {
+const IndexPage = () => {
     const { auth, isLoading } = useAuth('/auth');
     const respuesta = useAuth('/auth');
     console.log(respuesta);
@@ -25,4 +23,4 @@ const indexPage: NextPage = () => {
     )
 }
 
-export default indexPage
+export default IndexPage

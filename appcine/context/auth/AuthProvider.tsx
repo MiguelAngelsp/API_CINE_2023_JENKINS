@@ -11,11 +11,11 @@ import { IUsuarios } from '@/interfaces/usuarios';
 
 export interface AuthState {
     isLoggedIn: boolean;
-    user?: IAuth;
+    usuario?: IAuth;
 }
 const AUTH_INITIAL_STATE: AuthState = {
     isLoggedIn: false,
-    user: undefined
+    usuario: undefined
 }
 
 interface Props {
@@ -38,11 +38,11 @@ export const AuthProvider: FC<({ children: any })> = ({ children }) => {
         try {
             const { data } = await CineApi.post('/auth/login', { Correo, password });
             console.log(data);
-            const { token, user } = data;
-            console.log(user);
+            const { token, usuario } = data;
+            console.log(usuario);
             Cookies.set('token', token);
-            Cookies.set('FullName', user.fullName);
-            dispatch({ type: '[Auth] - Login', payload: user });
+            Cookies.set('FullName', usuario.fullName);
+            dispatch({ type: '[Auth] - Login', payload: usuario });
             return true;
         } catch (error) { //credenciales falsas
             return false;
@@ -52,11 +52,11 @@ export const AuthProvider: FC<({ children: any })> = ({ children }) => {
     const registerUser = async (Correo: string, password: string, fullName: string): Promise<IRespuestaApiAuth> => {
         try {
             const { data } = await CineApi.post('/auth/register', { Correo, fullName, password })
-            const { token, user } = data;
+            const { token, usuario } = data;
             Cookies.set('token', token);
-            Cookies.set('rol', user.roles[0]);
+            Cookies.set('rol', usuario.roles[0]);
             //mando a llamar al login pq ya se autenticó
-            dispatch({ type: '[Auth] - Login', payload: user });
+            dispatch({ type: '[Auth] - Login', payload: usuario });
             return {
                 hasError: false,
                 message: 'Usuario creado con éxito'

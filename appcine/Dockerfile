@@ -1,26 +1,27 @@
-# Selecciona la versión de Node.js que deseas utilizar
+# NODE Y VERSION
 FROM node:16-alpine
 
-# Crea y establece el directorio de trabajo de la aplicación
+# DIRECTORIO SOBRE EL QUE VAMOS A TRABAJAR
 WORKDIR /app
 
-# Copia el package.json y package-lock.json al contenedor
+# COPIAMOS EL package.json AL CONTENEDOR
 COPY package*.json ./
 
-# Instala las dependencias de la aplicación
+# INSTALAR LAS DEPENDENCIAS DE LA APP
 RUN yarn install
 
-# Copia todos los archivos de la aplicación al contenedor
+# COPIAMOS TODOS LOS ARCHIVOS DE LA APP AL CONTENEDOR
 COPY . .
 
-# Compila la aplicación para producción
+# COMPILAMOS PARA PRODUCCION
 RUN npm run build
 # RUN npm run
 
-# Expone el puerto 3000 para que Nginx pueda comunicarse con la aplicación
+
+#EXPONEMOS EL PUERTO 3000 PARA QUE NGINX PUEDA COMUNICARSE CON LA APLICACION
 EXPOSE 3000
 
-# Inicia la aplicación
+# INICIAMOS LA APLICACION
 CMD ["npm", "start"]
 
 

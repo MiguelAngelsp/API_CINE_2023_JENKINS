@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const cineApi = axios.create({
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'http://149.102.139.206:80/api'
 });
 
 export default cineApi
